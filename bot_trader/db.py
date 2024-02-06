@@ -16,9 +16,9 @@ db_port = os.getenv("DB_PORT")
 db_name = os.getenv("DB_NAME")
 
 engine  = create_async_engine(f"postgresql+asyncpg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}", echo=True)
-async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False) # Асинхронная сессия.
 
-Base = declarative_base()
+Base = declarative_base() # Из классов делаем модели.
 
 class Wallet(Base):
     __tablename__ = "wallets"
